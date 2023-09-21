@@ -1,20 +1,11 @@
-import { configuration } from 'src/config/configuration';
 import { DataSource } from 'typeorm';
+import { databaseConfig } from 'src/config/database.config';
 
 export const databaseProviders = [
   {
     provide: 'DATA_SOURCE',
     useFactory: async () => {
-      const dataSource = new DataSource({
-        type: 'mysql',
-        host: 'localhost',
-        port: 3306,
-        username: configuration.database.rootUsername,
-        password: configuration.database.rootPassword,
-        database: 'db',
-        entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-        synchronize: true,
-      });
+      const dataSource = new DataSource(databaseConfig);
 
       return dataSource.initialize();
     },
