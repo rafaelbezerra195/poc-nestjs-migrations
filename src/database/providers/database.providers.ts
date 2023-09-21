@@ -1,3 +1,4 @@
+import { configuration } from 'src/config/configuration';
 import { DataSource } from 'typeorm';
 
 export const databaseProviders = [
@@ -8,9 +9,11 @@ export const databaseProviders = [
         type: 'mysql',
         host: 'localhost',
         port: 3306,
-        password: 'root',
-        database: 'test',
+        username: configuration.database.rootUsername,
+        password: configuration.database.rootPassword,
+        database: 'db',
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+        synchronize: true,
       });
 
       return dataSource.initialize();
