@@ -21,5 +21,12 @@ services:
     restart: always
     ports:
       - 3306:3306
+    expose:
+      - 3306
     environment:
+      MYSQL_DATABASE: 'db'
       MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
