@@ -9,5 +9,4 @@ export const databaseConfig: DataSourceOptions = {
   password: configuration.database.rootPassword,
   database: 'db',
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-  synchronize: true,
 };
