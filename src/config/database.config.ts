@@ -3,11 +3,11 @@ import { configuration } from './configuration';
 
 export const databaseConfig: DataSourceOptions = {
   type: 'mysql',
-  host: 'mysql',
+  host: 'localhost',
   port: 3306,
   username: configuration.database.rootUsername,
   password: configuration.database.rootPassword,
   database: 'db',
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-  synchronize: true,
+  migrations: ['./migrations/*.ts'],
 };
