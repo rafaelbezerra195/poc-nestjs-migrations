@@ -14,6 +14,6 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ default: true })
-  isOnline: boolean;
+  @Column({ length: 1, default: 'T' })
+  isOnline: string;
 }
