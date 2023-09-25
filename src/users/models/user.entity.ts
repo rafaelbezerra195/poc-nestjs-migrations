@@ -10,7 +10,4 @@ export class User {
 
   @Column({ length: 100 })
   lastName: string;
-
-  @Column({ default: true })
-  isActive: boolean;
 }
